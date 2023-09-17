@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}" />
+    <title>Rent Flux | {% block title %}{% endblock title %}</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'app/images/Ren.png' %}" width="150" height="100">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {% if request.user.is_authenticated %}
+          
+        <li class="nav-item active">
+          <a class="nav-link text-white" href="/">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Products
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'category' 'SR' %}">Study Room</a>
+            <a class="dropdown-item" href="{% url 'category' 'BR' %}">Bed Room</a>
+            <a class="dropdown-item" href="{% url 'category' 'LR' %}">Living Room</a>
+            <a class="dropdown-item" href="{% url 'category' 'KT' %}">Kitchen</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'about' %}">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'contact' %}">Contact Us</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">      
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      </form>   
+  </div>
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0"></form>
+    <li class="nav-item dropdown mx-2">
+      <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ravika</a>
+      <ul class="dropdown-menu" aria-labelledby="profileDropdown" >
+        <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Orders</a></li>
+        <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
+        <li><a class="dropdown-item" href="{% url 'logout' %}">LogOut</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown mx-2">
+      <a href="#" class="nav-link text-white">Cart 4</a>
+    </li>
+    <li class="nav-item dropdown mx-2">
+      <a href="#" class="nav-link text-white">Wish List 4</a>
+    </li>
+    {% else %}
+    <li class="nav-item dropdown mx-2">
+      <a href="{% url 'login' %}" class="nav-link text-white">Login</a>
+    </li>
+    <li class="nav-item dropdown mx-2">
+      <a href="{% url 'customerregistration' %}" class="nav-link text-white">Registration</a>
+    </li>
+  </ul>
+  {% endif %}
+  </nav>
+      {% block banner-slider %}{% endblock banner-slider %}
+      {% block information %}{% endblock information %}
+      {% block main-content %}{% endblock main-content %}
+      <footer class="container-fluid text-white bg-dark text-center p-2 mt-5 fixed-bottom">
+        Copy Right: 2023 || Developed By: Rent Flux Technology
+      </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'app/js/all.min.js' %}"></script>
+    <script src="{% static 'app/js/myscript.js' %}"></script>
+
+</body>
+</html>

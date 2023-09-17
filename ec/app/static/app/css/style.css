@@ -1,0 +1,35 @@
+.morden img{
+    width: 100%;
+}
+
+
+
+.thumbnail a>img, .thumbnail>img {
+    display: block;
+    width: 100%;
+    height: 300px; 
+    position:relative;}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+.parent{
+    position: relative;
+    width: 500px;
+ }
+.img{
+   width:500px;
+ }
+.top-left{
+    position: absolute;
+    left:0;
+    top:0;
+ }
+
+.asdf {
+    margin-left:auto; 
+    margin-right:0;
+  }
